@@ -23,52 +23,52 @@ public class Orders implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+    private int id;
     @Column(nullable=false)
-	private Date generated;
+    private Date generated;
     @ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private List<Item> items;
+    private List<Item> items;
     @ManyToOne(fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private Supplier supplier;
-	private static final long serialVersionUID = 1L;
+    private Supplier supplier;
+    private static final long serialVersionUID = 1L;
 
-	public Orders() {
-		super();
-	}
-	
-	public Orders(Date generated) {
+    public Orders() {
+        super();
+    }
+    
+    public Orders(Date generated) {
         super();
         this.generated = generated;
     }
 
     public int getId() {
-		return this.id;
-	}
+        return this.id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}   
-	public Date getGenerated() {
-		return this.generated;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }   
+    public Date getGenerated() {
+        return this.generated;
+    }
 
-	public void setGenerated(Date generated) {
-		this.generated = generated;
-	}   
-	public List<Item> getItems() {
-		return this.items;
-	}
+    public void setGenerated(Date generated) {
+        this.generated = generated;
+    }   
+    public List<Item> getItems() {
+        return this.items;
+    }
 
-	public void setItems(List<Item> items) {
-		this.items = items;
-	}   
-	public Supplier getSupplier() {
-		return this.supplier;
-	}
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }   
+    public Supplier getSupplier() {
+        return this.supplier;
+    }
 
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
     @Override
     public String toString() {
         return "Order [id=" + id + ", generated=" + generated + ", items=" + items + ", supplier=" + supplier + "]";
